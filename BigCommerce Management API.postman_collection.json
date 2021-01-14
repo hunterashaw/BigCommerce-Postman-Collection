@@ -1,0 +1,922 @@
+{
+	"info": {
+		"_postman_id": "e3fd36e5-c3f2-4698-bddc-d6416649643a",
+		"name": "BigCommerce Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Catalog",
+			"item": [
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Get Categories",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"accept": true
+								}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Auth-Token",
+										"value": "5cotoc3doee5zr72qxzbniyv2u9mvy7",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Atlas B2237 Platinum Design Se\",\n    \"sku\":\"13843\",\n    \"mpn\":\"B2237\",\n    \"price\":47.99,\n    \"type\":\"physical\",\n    \"brand_name\":\"AtlasIED\",\n    \"weight\":7.78195,\n    \"custom_url\":{\"url\":\"/item/13843\"}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://api.bigcommerce.com/stores/ghv3w6n1aw/v3/catalog/categories",
+									"protocol": "https",
+									"host": [
+										"api",
+										"bigcommerce",
+										"com"
+									],
+									"path": [
+										"stores",
+										"ghv3w6n1aw",
+										"v3",
+										"catalog",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "v3/catalog/categories?name",
+									"host": [
+										"v3"
+									],
+									"path": [
+										"catalog",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category Tree",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "v3/catalog/categories/tree",
+									"host": [
+										"v3"
+									],
+									"path": [
+										"catalog",
+										"categories",
+										"tree"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Product Option",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\": 134,\n    \"name\": \"Colors\",\n    \"display_name\": \"Color\",\n    \"type\": \"swatch\",\n    \"sort_order\": 1,\n    \"option_values\": [\n        {\n            \"label\": \"Blue\",\n            \"sort_order\": 1,\n            \"value_data\": {\n                \"colors\": [\n                    \"#123c91\"\n                ]\n            },\n            \"is_default\": false\n        },\n        {\n            \"label\": \"Green\",\n            \"sort_order\": 2,\n            \"value_data\": {\n                \"colors\": [\n                    \"#0f961e\"\n                ]\n            },\n            \"is_default\": false\n        },\n        {\n            \"label\": \"Red\",\n            \"sort_order\": 3,\n            \"value_data\": {\n                \"colors\": [\n                    \"#e60c0c\"\n                ]\n            },\n            \"is_default\": false\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v3/catalog/products/:product_id/options",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"catalog",
+								"products",
+								":product_id",
+								"options"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v3/catalog/products",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"catalog",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Audio-Technica AT899cH Omni Lavalier Microphone\",\n    \"type\": \"physical\",\n    \"weight\": 0.42,\n    \"price\": 179,\n    \"sku\": \"25944_base\",\n    \"brand_name\": \"Audio-Technica\",\n    \"custom_url\": {\n        \"url\": \"/item/25944\"\n    },\n    \"categories\": [\n        716\n    ],\n    \"description\": \"<p>The AT899 subminiature omnidirectional microphone is engineered for intelligible, accurate voice reproduction. Its low-profile design (a mere 5 mm in diameter) assures minimum visibility. The mic may be worn as a lavalier and is easily hidden in clothing or hair. Includes a clothing clip, viper clip, magnet clip and lanyard, two windscreens, two element covers, three single mic holders, and two double mic holders.</p>  <p>For interviews, documentary, film and theatre applications. With AT8537 power module and AT899AK accessory kit. Audio-Technica�s omnidirectional AT899 is engineered for intelligible, accurate voice reproduction. Its low-profile design (a mere 5mm in diameter) assures minimum visibility. The mic may be worn as a lavalier and is easily hidden in clothing or hair. It offers the convenience of battery or phantom power; its switchable low-frequency roll-off reduces popping.</p>  <h2>Microphone Features</h2> <ul> <li>Maximum intelligibility and clean, accurate reproduction for vocalists, lecturers, stage and television talent, and houses of worship</li> <li>Low-profile design (a mere 5 mm in diameter) is ideal for applications requiring minimum visibility</li> <li>Operates on battery or phantom power</li> <li>Extensive array of provided accessories includes a clothing clip, viper clip, magnet clip and lanyard (black models only), windscreens, element covers, interchangeable single and double mic holders</li> <li>Accessories available separately include complete accessory kits, clothing clips, three-pack element covers and three-pack windscreens</li> <li>9.8' (3.0 m) cable permanently attached to mic, TA3F connector at power module</li> </ul> \",\n    \"custom_fields\": [\n        {\n            \"name\": \"Attatchments\",\n            \"value\": \"[{\\\"file\\\":\\\"AT899_Datasheet.pdf\\\",\\\"description\\\":\\\"AT899 Data Sheet\\\"}]\"\n        }\n    ],\n    \"meta_keywords\": [\n        \"Audio-Technica AT899cH Omni Lavalier Microphone\",\n        \" Black\"\n    ],\n    \"meta_description\": \"Audio-Technica AT899cH Omni Lavalier Microphone, Black\",\n    \"variants\": [\n        {\n            \"sku\": \"25944\",\n            \"mpn\": \"AT899cH\",\n            \"image_url\": \"https://soundpro.com/catalog/items/at899ch.jpg\",\n            \"price\": 179,\n            \"weight\": 0.42,\n            \"option_values\": [\n                {\n                    \"option_display_name\": \"Color\",\n                    \"label\": \"Black\",\n                    \"is_default\":true\n                }\n            ]\n        },\n        {\n            \"sku\": \"25959\",\n            \"mpn\": \"AT899cH-TH\",\n            \"image_url\": \"https://soundpro.com/catalog/items/at899ch-th.jpg\",\n            \"price\": 179,\n            \"weight\": 0.42,\n            \"option_values\": [\n                {\n                    \"option_display_name\": \"Color\",\n                    \"label\": \"Beige\"\n                }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v3/catalog/products",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"catalog",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Variants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product Options",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Product Option",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Product Option",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Product Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"image_url\": \"https://soundpro.com/catalog/items/b2237-1.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v3/catalog/products/:product_id/images",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"catalog",
+								"products",
+								":product_id",
+								"images"
+							],
+							"variable": [
+								{
+									"key": "product_id",
+									"value": "455"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v3/catalog/products/:id",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"catalog",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v3/proudcts/:id",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"proudcts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get A Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Widget",
+			"item": [
+				{
+					"name": "Get All Widget Templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v3/content/widget-templates",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"content",
+								"widget-templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Widget",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v3/content/widget-templates/:uuid",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"content",
+								"widget-templates",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "39a67420-4f81-4ff2-af51-c60abb6ca8a9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Widget Template",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Slick Slider Product Set\",\n    \"schema\": {\n        \"type\": \"tab\",\n        \"label\": \"Content\",\n        \"sections\": [\n            {\n                \"label\": \"Products\",\n                \"settings\": [\n                    {\n                        \"type\": \"productSet\",\n                        \"label\": \"Product Set\",\n                        \"id\": \"product\",\n                        \"entryLabel\": \"Product\",\n                        \"default\": {\n                            \"type\": \"manual\",\n                            \"value\": []\n                        }\n                    }\n                ],\n                \"typeMeta\": {\n                    \"type\": \"setSection\"\n                }\n            }\n        ]\n    },\n    \"template\": \"<div class=\\\"slick-slider-product-set\\\">{{#each products as |product|}}<div class=\\\"slide\\\">{{json product}}</div>{{/each}}</div>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v3/content/widget-templates",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"content",
+								"widget-templates"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Widget",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "v3/content/widgets",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"content",
+								"widgets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Widget Template",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"e62af3cf-36d8-46d5-905a-31c0b86b622e\",\n    \"name\": \"Slick Slider Product Set\",\n    \"schema\": [\n        {\n            \"type\": \"tab\",\n            \"label\": \"Content\",\n            \"sections\": [\n                {\n                    \"label\": \"Products\",\n                    \"settings\": [\n                        {\n                            \"type\": \"productSet\",\n                            \"label\": \"Product Set\",\n                            \"id\": \"product\",\n                            \"entryLabel\": \"Product\",\n                            \"default\": {\n                                \"value\": []\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n    ],\n    \"template\": \"<div class=\\\"cl-product-set-carousel\\\">{{json product.value}}</div>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v3/content/widget-templates/:uuid",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"content",
+								"widget-templates",
+								":uuid"
+							],
+							"variable": [
+								{
+									"key": "uuid",
+									"value": "e62af3cf-36d8-46d5-905a-31c0b86b622e"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Create Customers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"email\": \"hunter.shaw+2@classyllama.com\",\n    \"first_name\": \"Trinity\",\n    \"last_name\": \"Heights\",\n    \"phone\": \"318-221-2695\",\n    \"addresses\": [\n      {\n        \"first_name\": \"Trinity\",\n        \"last_name\": \"Heights\",\n        \"address1\": \"3820 Old Mooringsport Road\",\n        \"address2\": \"Darrell Robertson\",\n        \"city\": \"Shreveport\",\n        \"state_or_province\": \"Louisiana\",\n        \"postal_code\": \"71107\",\n        \"country_code\": \"US\"\n      }\n    ],\n    \"attributes\": [\n      {\n        \"attribute_id\": 2,\n        \"attribute_value\": \"\"\n      }\n    ],\n    \"authentication\": {\n      \"force_password_reset\": true\n    }\n  }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v3/customers",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Customer Attribute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[{\n    \"name\":\"AnotherOne\",\n    \"type\":\"string\"\n}]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v3/customers/attributes",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"customers",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v3/customers",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customer Attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v3/customers/attributes",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"customers",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upsert Customer Attribute Values",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Customer Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer Group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Customer Group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Order Products",
+					"item": [
+						{
+							"name": "List Order Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v2/orders",
+							"host": [
+								"v2"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "status_id",
+									"value": "4",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v2/orders/:id",
+							"host": [
+								"v2"
+							],
+							"path": [
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "119"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Celigo Webhook",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Channels",
+			"item": [
+				{
+					"name": "Get all Channels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v3/channels",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Channel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Sage 100\",\n    \"type\":\"pos\",\n    \"platform\":\"custom\",\n    \"is_listable_from_ui\":false,\n    \"is_visible\":false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v3/channels",
+							"host": [
+								"v3"
+							],
+							"path": [
+								"channels"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Webhooks",
+			"item": [
+				{
+					"name": "Create Webhook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"scope\": \"store/order/*\",\n  \"destination\": \"https://665b65a6.ngrok.io/webhooks\",\n  \"headers\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v2/hooks",
+							"host": [
+								"v2"
+							],
+							"path": [
+								"hooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Webhooks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v2/hooks",
+							"host": [
+								"v2"
+							],
+							"path": [
+								"hooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Webhook",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"scope\": \"store/order/*\",\n  \"destination\": \"https://665b65a6.ngrok.io/webhooks\",\n  \"headers\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "v2/hooks/:id",
+							"host": [
+								"v2"
+							],
+							"path": [
+								"hooks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Webhook",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "v2/hooks/:id",
+							"host": [
+								"v2"
+							],
+							"path": [
+								"hooks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Webhook",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "v2/hooks/:id",
+							"host": [
+								"v2"
+							],
+							"path": [
+								"hooks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Price Lists",
+			"item": [
+				{
+					"name": "Get All Price LIsts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Price List Records",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.url = 'https://api.bigcommerce.com/stores/' + pm.environment.get('hash') + '/' + pm.request.url",
+					"pm.request.headers.add({key:'X-Auth-Token', value:pm.environment.get('token')})",
+					"pm.request.headers.add({key:'Accept', value:'application/json'})",
+					"pm.request.headers.add({key:'Content-Type', value:'application/json'})"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
